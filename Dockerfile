@@ -10,3 +10,4 @@ COPY --chown=node:node . .
 EXPOSE 6789
 
 CMD [ "node", "docker-entry.js" ]
+    

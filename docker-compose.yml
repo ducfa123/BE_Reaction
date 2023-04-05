@@ -1,5 +1,5 @@
 
-version: '1.0'
+version: '2.2'
 
 services:
   # ngrok:
@@ -25,15 +25,14 @@ services:
     volumes:
       - .:/home/node/app
       - /home/node/app/node_modules
-      - /home/hoangtrongbinh/HoangTrongBinh/ATTT/modelDir:/home/node/app/modelDir
-      - /home/hoangtrongbinh/HoangTrongBinh/ATTT/datasetDir:/home/node/app/datasetDir
-      - /home/hoangtrongbinh/HoangTrongBinh/ATTT/sampleDir:/home/node/app/sampleDir
+      - /home/bmdcntt56/Documents/workspace/be_sensitive_infomation/BE/webDir:/home/node/app/webDir
     ports:
       - 6789:6789
 
   mongo:
     image: mongo
     volumes: 
+     
       - ./data/db:/data/db
     ports:
       - 27017:27017

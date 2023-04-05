@@ -19,8 +19,8 @@ exports.responseInValid = ({ res, message }) => {
     });
 }
 
-exports.responseSuccessWithData = ({ res, data }) => {
-    return res.json({
+exports.responseSuccessWithData = async ({ res, data }) => {
+    return await res.json({
         status: true,
         data: data,
         message: "Success"
