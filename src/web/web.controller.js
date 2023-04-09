@@ -97,7 +97,8 @@ exports.createWeb = async (req, res) => {
     const webId = uuid();
     // create folder
     const root = path.resolve("./");
-    const webDir = getDir({ dir: root + `/${WEB_FOLDER}/${webId}` });
+    // console.log({ dir: root + `/${WEB_FOLDER}/${webId}` });
+    const webDir = getDir({ dir:  `D:/workspace/ReactionDeploy/ReactionDeployy/image/${WEB_FOLDER}/${webId}` });
     //go to URL and dowload images
     let imgSrcArr = []
     let imgSrcArrPath = []
@@ -111,13 +112,16 @@ exports.createWeb = async (req, res) => {
             // here you can save the file or save them in an array to download them later
             var url = images[index].attribs.src
             imgSrcArr.push(url)
-            var path = `${webDir}/${uuid()}`
+            var nameImg = uuid()
+            var path = `./image/${nameImg}.jpg`
+            var pathuse = `D:/workspace/ReactionDeploy/ReactionDeployy/image/${nameImg}.jpg`
             imgSrcArrPath.push(path)
             if(url.includes('https://')) {
                 let example_image_1 = download_image(
                     url,
-                     path
+                    pathuse
                 );}
+
               })
               // done create
               const webData = {

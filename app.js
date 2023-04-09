@@ -51,18 +51,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 (async () => {
   // socket
   _io.on("connection", (socket) => {
+    console.log('socket connected');
     //=======INFER======
     socket.on("start_infer_model", async (data) => {
       const {imgSrcArrPath} = await Web.findOne({ webId: data.webId.webId });
       await _io.emit(`start_infering`, {
         // img_path: imgSrcArrPath[data.index],
-        // sid: data.sid
-          response: true
+        img_path:'./image/sample_det/sample.png' ,
+        sid: data.sid
+          // response: true
       });
-      console.log(imgSrcArrPath[data.index],data.sid);
+      // console.log(imgSrcArrPath[data.index],data.sid);
     });
     socket.on(`receive_infering_process`, async (data) => {
       const dataRecieve = JSON.parse(data);
+      console.log(dataRecieve["response"]);
       await _io.emit(`send_infering_result_${dataRecieve["sid"]}`, dataRecieve["response"]);
      
     });

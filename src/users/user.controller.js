@@ -127,7 +127,6 @@ exports.Login = async (req, res) => {
       return responseServerError({ res, err: error.message });
     };
     await user.save();
-
     //Success
     return responseSuccessWithData({
       res, data: {
